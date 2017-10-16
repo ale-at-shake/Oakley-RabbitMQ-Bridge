@@ -2,7 +2,7 @@
 
 namespace AleAbstract\MqOakley\Model;
 
-class ExampleConsumer implements \Rcason\Mq\Api\ConsumerInterface
+class ExternalConsumer implements \Rcason\Mq\Api\ConsumerInterface
 {
     protected $logger;
     
@@ -20,6 +20,6 @@ class ExampleConsumer implements \Rcason\Mq\Api\ConsumerInterface
      */
     public function process($productId)
     {
-        $this->logger->info('Product update processed: ' . $productId);
+        throw new \Exception('This queue should not be processed by a Magento consumer.');
     }
 }
